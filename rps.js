@@ -35,24 +35,33 @@ function getHumanChoice() {
     return result;
 }
 
-function playRound(humanChoice, computerChoice) {
-    if (humanChoice === computerChoice) {
-        console.log(`It's a tie! You both picked ${humanChoice}.`);
-    } else if (
-        humanChoice === 'rock' && computerChoice === 'scissors' ||
-        humanChoice === 'scissors' && computerChoice === 'paper' ||
-        humanChoice === 'paper' && computerChoice === 'rock'
-    ) {
-        console.log(`You win! You chose ${humanChoice} and the computer chose ${computerChoice}.`)
-        humanScore++;
-    } else {
-        console.log(`You lose :( You chose ${humanChoice} and the computer chose ${computerChoice}.`)
-        computerScore++;
+function playGame() {
+    function playRound(humanChoice, computerChoice) {
+        if (humanChoice === computerChoice) {
+            console.log(`It's a tie! You both picked ${humanChoice}.`);
+        } else if (
+            humanChoice === 'rock' && computerChoice === 'scissors' ||
+            humanChoice === 'scissors' && computerChoice === 'paper' ||
+            humanChoice === 'paper' && computerChoice === 'rock'
+        ) {
+            console.log(`You win! You chose ${humanChoice} and the computer chose ${computerChoice}.`)
+            humanScore++;
+        } else {
+            console.log(`You lose :( You chose ${humanChoice} and the computer chose ${computerChoice}.`)
+            computerScore++;
+        }
     }
+
+    let humanScore = 0, computerScore = 0;
+    // Best of 5 as opposed to 5 rounds regardless.
+    while (humanScore < 3 && computerScore < 3) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+
+        playRound(humanSelection, computerSelection);
+    }
+
+    console.log(`Final score: human ${humanScore} computer ${computerScore}`);
 }
 
-let humanScore = 0, computerScore = 0;
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-playRound(humanSelection, computerSelection);
+playGame();r
