@@ -57,16 +57,24 @@ let rockButton = document.createElement('button');
 let paperButton = document.createElement('button');
 let scissorsButton = document.createElement('button');
 let textDiv = document.createElement('div');
+let buttonDiv = document.createElement('div');
 
-rockButton.style.cssText = "border-radius: 25px; background: #73AD21; padding: 20px; width: 200px; height: 150px;";
-paperButton.style.cssText = "border-radius: 25px; background: #73AD21; padding: 20px; width: 200px; height: 150px;";
-scissorsButton.style.cssText = "border-radius: 25px; background: #73AD21; padding: 20px; width: 200px; height: 150px;";
-mainDiv.style.cssText = "border-radius: 20px; border: 2px solid #73AD21; display: flex; flex-direction: column; justify-content: center; padding: 20px; font-size: 40px; font-family: sans-serif; font-weight: bold;";
-textDiv.style.cssText = "display: flex; justify-content: center; align-content: center;"
+rockButton.style.cssText = "border-radius: 25px; background:rgb(137, 180, 250); padding: 20px; width: 200px; height: 150px; font-family: sans-serif; font-size: 40px;";
+paperButton.style.cssText = "border-radius: 25px; background:rgb(137, 180, 250); padding: 20px; width: 200px; height: 150px; font-family: sans-serif; font-size: 40px;";
+scissorsButton.style.cssText = "border-radius: 25px; background:rgb(137, 180, 250); padding: 20px; width: 200px; height: 150px; font-family: sans-serif; font-size: 40px;";
+mainDiv.style.cssText = "border-radius: 20px; border: 2px solid rgb(137, 180, 250); background: rgb(49, 50, 68); display: flex; flex-direction: column; justify-content: center; padding: 20px; font-size: 40px; font-family: sans-serif; font-weight: bold; color: rgb(137, 180, 250);";
+textDiv.style.cssText = "display: flex; justify-content: center; align-content: center; margin-bottom: 20px;"
+buttonDiv.style.cssText = "display: flex; justify-content: space-between;"
 textDiv.textContent = "Rock Paper Scissors";
 
+rockButton.textContent = "Rock";
+paperButton.textContent = "Paper";
+scissorsButton.textContent = "Scissors";
+
 mainDiv.appendChild(textDiv);
-mainDiv.appendChild(rockButton);
-mainDiv.appendChild(paperButton);
-mainDiv.appendChild(paperButton);
+buttonDiv.appendChild(rockButton);
+buttonDiv.appendChild(paperButton);
+buttonDiv.appendChild(scissorsButton);
+mainDiv.appendChild(buttonDiv);
+
 document.body.appendChild(mainDiv);
