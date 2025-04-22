@@ -44,11 +44,14 @@ function playRound(humanChoice, computerChoice) {
         humanChoice === 'paper' && computerChoice === 'rock'
     ) {
         console.log(`You win! You chose ${humanChoice} and the computer chose ${computerChoice}.`)
+        humanScore++;
     } else {
         console.log(`You lose :( You chose ${humanChoice} and the computer chose ${computerChoice}.`)
+        computerScore++;
     }
 }
-
+let humanScore = 0;
+let computerScore = 0;
 
 let mainDiv = document.createElement('div');
 let rockButton = document.createElement('button');
@@ -56,6 +59,7 @@ let paperButton = document.createElement('button');
 let scissorsButton = document.createElement('button');
 let textDiv = document.createElement('div');
 let buttonDiv = document.createElement('div');
+let scoreDiv = document.createElement('div');
 
 // Add event listeners. Probably a more efficient way to do this, but it doesn't matter here:
 rockButton.addEventListener("click", () => {
@@ -72,11 +76,15 @@ rockButton.style.cssText = "border-radius: 25px; background:rgb(137, 180, 250); 
 paperButton.style.cssText = "border-radius: 25px; background:rgb(137, 180, 250); padding: 20px; width: 200px; height: 150px; font-family: sans-serif; font-size: 40px;";
 scissorsButton.style.cssText = "border-radius: 25px; background:rgb(137, 180, 250); padding: 20px; width: 200px; height: 150px; font-family: sans-serif; font-size: 40px;";
 
+scoreDiv.style.cssText = `border-radius: 20px; border: 2px solid rgb(137, 180, 250); background: rgb(17, 17, 27); display: flex; flex-direction: column;
+                          justify-content: center; margin: 50px; padding: 20px; font-size: 40px; font-family: sans-serif; font-weight: bold; color: rgb(243, 139, 168);
+                          text-align: center;`;
 mainDiv.style.cssText = `border-radius: 20px; border: 2px solid rgb(137, 180, 250); background: rgb(24, 24, 37); display: flex; flex-direction: column;
                         justify-content: center; padding: 20px; font-size: 40px; font-family: sans-serif; font-weight: bold; color: rgb(137, 180, 250);`;
 textDiv.style.cssText = "display: flex; justify-content: center; align-content: center; margin-bottom: 20px;";
 buttonDiv.style.cssText = "display: flex; justify-content: space-between;";
 
+scoreDiv.textContent = `human: ${humanScore} computer: ${computerScore}`;
 textDiv.textContent = "Rock Paper Scissors";
 rockButton.textContent = "Rock";
 paperButton.textContent = "Paper";
@@ -87,6 +95,7 @@ buttonDiv.appendChild(rockButton);
 buttonDiv.appendChild(paperButton);
 buttonDiv.appendChild(scissorsButton);
 mainDiv.appendChild(buttonDiv);
+mainDiv.appendChild(scoreDiv);
 
 document.body.style.cssText = "background: rgb(17, 17, 27);";
 document.body.appendChild(mainDiv);
