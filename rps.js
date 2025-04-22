@@ -62,7 +62,7 @@ let buttonDiv = document.createElement('div');
 rockButton.style.cssText = "border-radius: 25px; background:rgb(137, 180, 250); padding: 20px; width: 200px; height: 150px; font-family: sans-serif; font-size: 40px;";
 paperButton.style.cssText = "border-radius: 25px; background:rgb(137, 180, 250); padding: 20px; width: 200px; height: 150px; font-family: sans-serif; font-size: 40px;";
 scissorsButton.style.cssText = "border-radius: 25px; background:rgb(137, 180, 250); padding: 20px; width: 200px; height: 150px; font-family: sans-serif; font-size: 40px;";
-mainDiv.style.cssText = "border-radius: 20px; border: 2px solid rgb(137, 180, 250); background: rgb(49, 50, 68); display: flex; flex-direction: column; justify-content: center; padding: 20px; font-size: 40px; font-family: sans-serif; font-weight: bold; color: rgb(137, 180, 250);";
+mainDiv.style.cssText = "border-radius: 20px; border: 2px solid rgb(137, 180, 250); background: rgb(24, 24, 37); display: flex; flex-direction: column; justify-content: center; padding: 20px; font-size: 40px; font-family: sans-serif; font-weight: bold; color: rgb(137, 180, 250);";
 textDiv.style.cssText = "display: flex; justify-content: center; align-content: center; margin-bottom: 20px;"
 buttonDiv.style.cssText = "display: flex; justify-content: space-between;"
 textDiv.textContent = "Rock Paper Scissors";
@@ -77,4 +77,5 @@ buttonDiv.appendChild(paperButton);
 buttonDiv.appendChild(scissorsButton);
 mainDiv.appendChild(buttonDiv);
 
+document.body.style.cssText = "background: rgb(17, 17, 27);";
 document.body.appendChild(mainDiv);
