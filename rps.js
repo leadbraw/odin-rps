@@ -45,14 +45,17 @@ function playRound(humanChoice, computerChoice) {
     ) {
         console.log(`You win! You chose ${humanChoice} and the computer chose ${computerChoice}.`)
         humanScore++;
+        scoreDiv.textContent = `human: ${humanScore} computer: ${computerScore}`;
     } else {
         console.log(`You lose :( You chose ${humanChoice} and the computer chose ${computerChoice}.`)
         computerScore++;
+        scoreDiv.textContent = `human: ${humanScore} computer: ${computerScore}`;
     }
 }
 let humanScore = 0;
 let computerScore = 0;
 
+// I'm just making everything here in the script file
 let mainDiv = document.createElement('div');
 let rockButton = document.createElement('button');
 let paperButton = document.createElement('button');
