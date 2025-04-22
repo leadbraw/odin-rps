@@ -64,4 +64,4 @@ function playGame() {
     console.log(`Final score: human ${humanScore} computer ${computerScore}`);
 }
 
-playGame();r
+playGame();
