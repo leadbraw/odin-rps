@@ -65,7 +65,7 @@ let buttonDiv = document.createElement('div');
 let scoreDiv = document.createElement('div');
 let feedDiv = document.createElement('div');
 
-// Add event listeners. Probably a more efficient way to do this, but it doesn't matter here:
+// Add event listeners. I'm not bothering with just making one listener for all clicks. Too bad!
 rockButton.addEventListener("click", () => {
     playRound('rock', getComputerChoice());
 });
@@ -74,6 +74,21 @@ paperButton.addEventListener("click", () => {
 });
 scissorsButton.addEventListener("click", () => {
     playRound('scissors', getComputerChoice());
+});
+
+// Allow the user to do r, p, or s instead of clicking buttons
+document.addEventListener('keypress', (e) => {
+    switch (e.code) {
+        case 'KeyR':
+            playRound('rock', getComputerChoice());
+            break;
+        case 'KeyP':
+            playRound('paper', getComputerChoice());
+            break;
+        case 'KeyS':
+            playRound('scissors', getComputerChoice());
+            break;
+    }
 });
 
 rockButton.style.cssText = "border-radius: 25px; background:rgb(137, 180, 250); padding: 20px; width: 200px; height: 150px; font-family: sans-serif; font-size: 40px;";
@@ -94,6 +109,7 @@ feedDiv.style.cssText = `border-radius: 20px; border: 2px solid rgb(137, 180, 25
 scoreDiv.textContent = `human: ${humanScore} computer: ${computerScore}`;
 feedDiv.textContent = `Welcome to the Rock Paper Scissors game!`;
 textDiv.textContent = "Rock Paper Scissors";
+
 rockButton.textContent = "Rock";
 paperButton.textContent = "Paper";
 scissorsButton.textContent = "Scissors";
