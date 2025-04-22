@@ -37,17 +37,17 @@ function getHumanChoice() {
 
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
-        console.log(`It's a tie! You both picked ${humanChoice}.`);
+        feedDiv.textContent = `It's a tie! You both picked ${humanChoice}.`;
     } else if (
         humanChoice === 'rock' && computerChoice === 'scissors' ||
         humanChoice === 'scissors' && computerChoice === 'paper' ||
         humanChoice === 'paper' && computerChoice === 'rock'
     ) {
-        console.log(`You win! You chose ${humanChoice} and the computer chose ${computerChoice}.`)
+        feedDiv.textContent = `You win! You chose ${humanChoice} and the computer chose ${computerChoice}.`;
         humanScore++;
         scoreDiv.textContent = `human: ${humanScore} computer: ${computerScore}`;
     } else {
-        console.log(`You lose :( You chose ${humanChoice} and the computer chose ${computerChoice}.`)
+        feedDiv.textContent = `You lose :( You chose ${humanChoice} and the computer chose ${computerChoice}.`;
         computerScore++;
         scoreDiv.textContent = `human: ${humanScore} computer: ${computerScore}`;
     }
@@ -63,6 +63,7 @@ let scissorsButton = document.createElement('button');
 let textDiv = document.createElement('div');
 let buttonDiv = document.createElement('div');
 let scoreDiv = document.createElement('div');
+let feedDiv = document.createElement('div');
 
 // Add event listeners. Probably a more efficient way to do this, but it doesn't matter here:
 rockButton.addEventListener("click", () => {
@@ -80,14 +81,18 @@ paperButton.style.cssText = "border-radius: 25px; background:rgb(137, 180, 250);
 scissorsButton.style.cssText = "border-radius: 25px; background:rgb(137, 180, 250); padding: 20px; width: 200px; height: 150px; font-family: sans-serif; font-size: 40px;";
 
 scoreDiv.style.cssText = `border-radius: 20px; border: 2px solid rgb(137, 180, 250); background: rgb(17, 17, 27); display: flex; flex-direction: column;
-                          justify-content: center; margin: 50px; padding: 20px; font-size: 40px; font-family: sans-serif; font-weight: bold; color: rgb(243, 139, 168);
+                          justify-content: center; margin: 50px 150px 40px 150px; padding: 20px; font-size: 40px; font-family: sans-serif; font-weight: bold; color: rgb(243, 139, 168);
                           text-align: center;`;
 mainDiv.style.cssText = `border-radius: 20px; border: 2px solid rgb(137, 180, 250); background: rgb(24, 24, 37); display: flex; flex-direction: column;
-                        justify-content: center; padding: 20px; font-size: 40px; font-family: sans-serif; font-weight: bold; color: rgb(137, 180, 250);`;
-textDiv.style.cssText = "display: flex; justify-content: center; align-content: center; margin-bottom: 20px;";
-buttonDiv.style.cssText = "display: flex; justify-content: space-between;";
+                        justify-content: center; padding: 20px; font-size: 40px; font-family: sans-serif; font-weight: bold; color: rgb(137, 180, 250); margin: 50px;`;
+textDiv.style.cssText = "display: flex; justify-content: center; align-content: center; margin-bottom: 20px; font-size: 70px";
+buttonDiv.style.cssText = "display: flex; justify-content: space-evenly;";
+feedDiv.style.cssText = `border-radius: 20px; border: 2px solid rgb(137, 180, 250); background: rgb(17, 17, 27); display: flex; flex-direction: column;
+                          justify-content: center; margin: auto; padding: 20px; font-size: 40px; font-family: sans-serif; font-weight: 10; color: rgb(243, 139, 168);
+                          text-align: center;`;
 
 scoreDiv.textContent = `human: ${humanScore} computer: ${computerScore}`;
+feedDiv.textContent = `Welcome to the Rock Paper Scissors game!`;
 textDiv.textContent = "Rock Paper Scissors";
 rockButton.textContent = "Rock";
 paperButton.textContent = "Paper";
@@ -99,6 +104,7 @@ buttonDiv.appendChild(paperButton);
 buttonDiv.appendChild(scissorsButton);
 mainDiv.appendChild(buttonDiv);
 mainDiv.appendChild(scoreDiv);
+mainDiv.appendChild(feedDiv);
 
 document.body.style.cssText = "background: rgb(17, 17, 27);";
 document.body.appendChild(mainDiv);
