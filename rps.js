@@ -1,5 +1,5 @@
 function getComputerChoice() {
-    const choice = Math.floor(Math.random() * (3 - 0) + 0);
+    const choice = Math.floor(Math.random() * 3);
     let result;
     switch (choice) {
         case 0:
@@ -44,10 +44,8 @@ function playRound(humanChoice, computerChoice) {
         humanChoice === 'paper' && computerChoice === 'rock'
     ) {
         console.log(`You win! You chose ${humanChoice} and the computer chose ${computerChoice}.`)
-        humanScore++;
     } else {
         console.log(`You lose :( You chose ${humanChoice} and the computer chose ${computerChoice}.`)
-        computerScore++;
     }
 }
 
@@ -63,10 +61,10 @@ let buttonDiv = document.createElement('div');
 rockButton.addEventListener("click", () => {
     playRound('rock', getComputerChoice());
 });
-rockButton.addEventListener("click", () => {
+paperButton.addEventListener("click", () => {
     playRound('paper', getComputerChoice());
 });
-rockButton.addEventListener("click", () => {
+scissorsButton.addEventListener("click", () => {
     playRound('scissors', getComputerChoice());
 });
 
